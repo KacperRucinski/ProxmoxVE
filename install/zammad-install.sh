@@ -34,7 +34,7 @@ msg_ok "Setup Elasticsearch"
 
 msg_info "Installing Zammad"
 curl -fsSL https://dl.packager.io/srv/zammad/zammad/key | gpg --dearmor | sudo tee /etc/apt/keyrings/pkgr-zammad.gpg >/dev/null
-echo "deb [signed-by=/etc/apt/keyrings/pkgr-zammad.gpg] https://dl.packager.io/srv/deb/zammad/zammad/stable/debian 12 main" | sudo tee /etc/apt/sources.list.d/zammad.list >/dev/null
+echo "deb [signed-by=/etc/apt/keyrings/pkgr-zammad.gpg] https://dl.packager.io/srv/deb/zammad/zammad/develop/debian 12 main" | sudo tee /etc/apt/sources.list.d/zammad.list >/dev/null
 $STD apt-get update
 $STD apt-get -y install zammad
 $STD zammad run rails r "Setting.set('es_url', 'http://localhost:9200')"
